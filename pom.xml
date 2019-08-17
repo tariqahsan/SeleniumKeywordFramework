@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.isb.trainning.selenium</groupId>
-	<artifactId>SeleniumKewordAutomation</artifactId>
+	<artifactId>SeleniumKeywordFramework</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SeleniumKewordAutomation</name>
-	<description>Keyword Driven Ayutomation Testing Framework</description>
+	<name>SeleniumKeywordFramework</name>
+	<description>Keyword Driven Automation Testing Framework</description>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 		<dependency>

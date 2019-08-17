@@ -4,26 +4,24 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
-//--
+
 import org.openqa.selenium.By;
-//--
 import org.openqa.selenium.WebDriver;
-//--
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-//--
-//import org.openqa.selenium.firefox.FirefoxDriver;
-//--
+
 import org.testng.Assert;
-//--
 import org.testng.annotations.AfterClass;
-//--
 import org.testng.annotations.BeforeClass;
-//--
 import org.testng.annotations.Test;
 
 import jxl.Sheet;
 import jxl.read.biff.BiffException;
+
+import org.isb.training.selenium.ConfigFileReader;
+import org.isb.training.selenium.Driver;
+import org.isb.training.selenium.CommonFunctionsLib;
+
 
 public class LoadTest2 {
 	
@@ -105,19 +103,19 @@ public class LoadTest2 {
 							String snoTestSteps = excelSheetDriver.readCell(testStepsheet,0, w);
 							String testStepcaseNumber = excelSheetDriver.readCell(testStepsheet,1, w);
 							String desTestSteps = excelSheetDriver.readCell(testStepsheet,2, w);
-							String xpathTestSteps = excelSheetDriver.readCell(testStepsheet,3, w);
+							String element = excelSheetDriver.readCell(testStepsheet,3, w);
 							String value = excelSheetDriver.readCell(testStepsheet,4, w);
 							String keywordTestSteps = excelSheetDriver.readCell(testStepsheet,5, w);
 							if(testCaseNumber.equalsIgnoreCase(testStepcaseNumber)){
 								logger.info("snoTestSteps:" + snoTestSteps);
 								logger.info("desTestSteps:" + desTestSteps);
-								logger.info("xpathTestSteps:" + xpathTestSteps);
+								logger.info("element:" + element);
 								logger.info("value:" + value);
 								logger.info("keywordTestSteps:" + keywordTestSteps);
 								
-//								logger.info("Executing performActions Method with the three arguments -" + keywordTestSteps + " " + value + " "+  xpathTestSteps);
-								System.out.println("Executing performActions Method with the three arguments -" + "Keyword :" + keywordTestSteps + " " + "Value: " + value + " "+ "Xpathexpression: " +xpathTestSteps);
-								comlib.performActions(keywordTestSteps, value, xpathTestSteps);
+//								logger.info("Executing performActions Method with the three arguments -" + keywordTestSteps + " " + value + " "+  element);
+								System.out.println("Executing performActions Method with the three arguments -" + "keyword :" + keywordTestSteps + " " + "Value: " + value + " "+ "element: " + element);
+								comlib.performActions(keywordTestSteps, value, element);
 							}
 
 						}

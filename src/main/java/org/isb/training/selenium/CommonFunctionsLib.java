@@ -21,26 +21,26 @@ public class CommonFunctionsLib {
 		this.driver = driver;
 	}
 
-	public boolean performActions(String Keyword, String value, String xpathExpression)
+	public boolean performActions(String keyword, String value, String element)
 			throws NumberFormatException, InterruptedException {
-		logger.info("Keyword: " +  Keyword + " value: " + value + " xpathExpression:  " + xpathExpression);
-		//System.out.println("Keyword: " + Keyword + " value: " + value + " xpathExpression:  " + xpathExpression);
-		if (Keyword.equalsIgnoreCase("Click")) {
-			driver.findElement(By.xpath(xpathExpression)).click();
+		logger.info("keyword: " +  keyword + " value: " + value + " element:  " + element);
+		//System.out.println("keyword: " + keyword + " value: " + value + " element:  " + element);
+		if (keyword.equalsIgnoreCase("Click")) {
+			driver.findElement(By.xpath(element)).click();
 			logger.info("Click is performed sucessfully");
 			return true;
-		} else if (Keyword.equalsIgnoreCase("Input")) {
-			driver.findElement(By.xpath(xpathExpression)).sendKeys(value);
+		} else if (keyword.equalsIgnoreCase("Input")) {
+			driver.findElement(By.xpath(element)).sendKeys(value);
 			logger.info("Input is performed sucessfully");
 			return true;
-		} else if (Keyword.equalsIgnoreCase("dropdown")) {
-			Select dropDown = new Select(driver.findElement(By.xpath(xpathExpression)));
+		} else if (keyword.equalsIgnoreCase("dropdown")) {
+			Select dropDown = new Select(driver.findElement(By.xpath(element)));
 			dropDown.selectByVisibleText(value);
 
-		} else if (Keyword.equalsIgnoreCase("Radio-Male")) {
+		} else if (keyword.equalsIgnoreCase("Radio-Male")) {
 
 			// Identifying Male radio button using its ID as an locator
-			WebElement maleRadioBtn = driver.findElement(By.id(xpathExpression));
+			WebElement maleRadioBtn = driver.findElement(By.id(element));
 
 			// Checking if the Male Radio button is displayed on the Webpage and printing the status
 			boolean radioBtnIsDisplayed = maleRadioBtn.isDisplayed();
@@ -63,10 +63,10 @@ public class CommonFunctionsLib {
 			
 			return true;
 			
-		} else if (Keyword.equalsIgnoreCase("Radio-Female")) {
+		} else if (keyword.equalsIgnoreCase("Radio-Female")) {
 
 			// Identifying Male radio button using its ID as an locator
-			WebElement maleRadioBtn = driver.findElement(By.id(xpathExpression));
+			WebElement maleRadioBtn = driver.findElement(By.id(element));
 
 			// Checking if the Male Radio button is displayed on the Webpage and printing the status
 			boolean radioBtnIsDisplayed = maleRadioBtn.isDisplayed();
@@ -89,7 +89,7 @@ public class CommonFunctionsLib {
 			
 			return true;
 
-		} else if (Keyword.equalsIgnoreCase("Radio-exp")) {		
+		} else if (keyword.equalsIgnoreCase("Radio-exp")) {		
 
 			// To prevent the error occuring during execution - 
 			// unknown error: Element <input id="exp-1" name="exp" type="radio" value="2"> is not clickable at point (277, 660)...
@@ -99,7 +99,7 @@ public class CommonFunctionsLib {
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			Actions actions = new Actions(driver);
 
-			WebElement expRadioBtn = driver.findElement(By.id(xpathExpression));
+			WebElement expRadioBtn = driver.findElement(By.id(element));
 			
 			// Checking if the Male Radio button is displayed on the Webpage and printing the status
 			boolean radioBtnIsDisplayed = expRadioBtn.isDisplayed();
@@ -125,20 +125,26 @@ public class CommonFunctionsLib {
 			System.out.println("Experience radio Selection status after perform click() event: " + radioBtnNewSelectionStatus);
 			
 			return true;
-
-		} else if (Keyword.equalsIgnoreCase("gettext")) {
-			driver.findElement(By.xpath(xpathExpression)).getText();
+			
+		} else if (keyword.equalsIgnoreCase("upload")) {
+			System.out.println("in upload file ...");
+			driver.findElement(By.id(element)).sendKeys(System.getProperty("user.dir") + "/TestCases/Allah.jpg");
+			System.out.println("upload is performed sucessfully ...");
+			logger.info("upload is performed sucessfully");
+			return true;
+		} else if (keyword.equalsIgnoreCase("gettext")) {
+			driver.findElement(By.xpath(element)).getText();
 			logger.info("getText is performed sucessfully");
 			return true;
-		} else if (Keyword.equalsIgnoreCase("url")) {
+		} else if (keyword.equalsIgnoreCase("url")) {
 			driver.get(value);  // 
 			logger.info("Url is opened sucessfully");
 			return true;
-		} else if (Keyword.equalsIgnoreCase("CloseBrowser")) {
+		} else if (keyword.equalsIgnoreCase("CloseBrowser")) {
 			driver.quit();
 			logger.info("Browser is closed sucessfully");
 			return true;
-		} else if (Keyword.equalsIgnoreCase("sleep")) {
+		} else if (keyword.equalsIgnoreCase("sleep")) {
 			if (value.equalsIgnoreCase("level1")) {
 				Thread.sleep(3000);
 			} else if (value.equalsIgnoreCase("level2")) {
@@ -154,9 +160,9 @@ public class CommonFunctionsLib {
 			}
 			logger.info("sleep is done sucessfully");
 			return true;
-		} else if (Keyword.equalsIgnoreCase("VerifyText")) {
+		} else if (keyword.equalsIgnoreCase("VerifyText")) {
 
-			if (value.equalsIgnoreCase(driver.findElement(By.xpath(xpathExpression)).getText())) {
+			if (value.equalsIgnoreCase(driver.findElement(By.xpath(element)).getText())) {
 				logger.info("verify text true");
 				return true;
 			} else {
@@ -164,7 +170,7 @@ public class CommonFunctionsLib {
 				return false;
 			}
 
-		} else if (Keyword.equalsIgnoreCase("Pop")) {
+		} else if (keyword.equalsIgnoreCase("Pop")) {
 			// Do nothing
 		}
 
