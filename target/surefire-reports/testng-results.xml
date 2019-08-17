@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="70441" started-at="2019-08-16T15:17:57Z" finished-at="2019-08-16T15:19:07Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="70441" started-at="2019-08-16T15:17:57Z" finished-at="2019-08-16T15:19:07Z">
+      <class name="org.isb.training.selenium.LoadTest2">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:org.isb.training.selenium.LoadTest2@39fb3ab6]" name="beforeClass" is-config="true" duration-ms="7290" started-at="2019-08-16T11:17:57Z" finished-at="2019-08-16T11:18:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="verifySearchButton()[pri:0, instance:org.isb.training.selenium.LoadTest2@39fb3ab6]" name="verifySearchButton" duration-ms="62442" started-at="2019-08-16T11:18:04Z" finished-at="2019-08-16T11:19:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifySearchButton -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:org.isb.training.selenium.LoadTest2@39fb3ab6]" name="afterClass" is-config="true" duration-ms="695" started-at="2019-08-16T11:19:07Z" finished-at="2019-08-16T11:19:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- org.isb.training.selenium.LoadTest2 -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
